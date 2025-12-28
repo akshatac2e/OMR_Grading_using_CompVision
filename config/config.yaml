@@ -1,0 +1,37 @@
+# OMR System Configuration
+
+paths:
+  template_image: "data/template/template.jpg"
+  input_image: "data/inputs/sample_sheet.jpg"
+  output_dir: "data/outputs"
+
+# Image Processing Parameters
+processing:
+  # Alignment (ORB)
+  orb_nfeatures: 5000
+  match_ratio: 0.75  # Lowe's ratio test
+  
+  # Thresholding (Adaptive Gaussian)
+  adaptive_method: "gaussian" # gaussian or mean
+  block_size: 15 # Size of a pixel neighborhood that is used to calculate a threshold value
+  c_value: 5 # Constant subtracted from the mean or weighted mean
+
+# Exam Configuration
+exam:
+  num_questions: 5
+  options_per_question: 4
+  # Correct answers (0=A, 1=B, 2=C, 3=D)
+  answer_key: [0, 1, 0, 2, 3]
+
+# ROI Configuration (Coordinates from template generation)
+# In a real app, these might be detected automatically or defined via a GUI tool.
+# Based on the generator script:
+# Start Y: 250, Gap Y: 60
+# Start X: 150, Gap X: 60
+# Radius: 20
+roi:
+  start_x: 150
+  start_y: 250
+  gap_x: 60
+  gap_y: 60
+  radius: 20
